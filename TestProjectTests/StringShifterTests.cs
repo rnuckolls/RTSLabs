@@ -11,6 +11,10 @@ namespace TestProjectTests
         }
 
         [TestCase("MyString", 2, ExpectedResult = "ngMyStri")]
+        [TestCase("", 2, ExpectedResult = "")]
+        [TestCase("MyString", 0, ExpectedResult = "MyString")]
+        [TestCase("MyString", -2, ExpectedResult = "StringMy")]
+        [TestCase(null, 2, ExpectedResult = null)]
         public string ShiftStringRight(string stringToShift, int steps)
         {
             var shifter = new StringShifter(stringToShift);

@@ -17,22 +17,22 @@ namespace TestProject
         public string GetCategorizedList(int separator)
         {
             // Assumption: drop values from list equal to separator
-            var aboveList = new List<int>();
-            var belowList = new List<int>();
+            var aboveList = 0;
+            var belowList = 0;
 
             foreach (var item in Items)
             {
                 if (item > separator)
                 {
-                    aboveList.Add(item);
+                    aboveList++;
                 }
                 else if(item < separator)
                 {
-                    belowList.Add(item);
+                    belowList++;
                 }
             }
 
-            return $"above: {String.Join(",", aboveList)}, below: {String.Join(",", belowList)}";
+            return $"above: {aboveList}, below: {belowList}";
         }
     }
 }

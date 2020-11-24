@@ -16,6 +16,11 @@ namespace TestProject
 
         public string Shift(int steps)
         {
+            if (string.IsNullOrWhiteSpace(InitialString) || steps == 0)
+            {
+                return InitialString;
+            }
+
             var items = InitialString.ToCharArray();
             var initialLength = items.Count();
             var newItems = new char[initialLength];
@@ -40,13 +45,13 @@ namespace TestProject
             var counter = 0;
             for (int i = steps; i < initialLength; i++)
             {
-                newItems[counter] = items[i];
+                newItems[i] = items[counter];
                 counter++;
             }
-
-            for (int i = 0; i < initialLength - counter; i++)
+            for (int i = 0; i < steps; i++)
             {
-                newItems[counter + i] = items[i];        
+                newItems[i] = items[counter];
+                counter++;
             }
 
             return String.Join(string.Empty, newItems);
